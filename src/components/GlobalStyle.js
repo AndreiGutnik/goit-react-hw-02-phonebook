@@ -33,17 +33,27 @@ export const GlobalStyle = createGlobalStyle`
 		margin-bottom: 0;
 	}
 
+	h1, h2 {
+		text-align: center;
+		margin-bottom: 24px;
+	}
+
 	ul {
 		margin-top: 0;
 		margin-bottom: 0;
 		padding-left: 0;
 		text-decoration: none;
-		list-style: none;
 	}
 
 	img {
 		display: block;
 		max-width: 100%;
 		height: auto;
+	}
+
+	input,
+	button,
+	label {
+		display: block;
 	}
 `;
