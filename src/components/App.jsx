@@ -20,18 +20,18 @@ export class App extends Component {
   };
 
   formSubmitHandler = ({ name, number }) => {
-    const newContact = {
-      id: nanoid(),
-      name,
-      number,
-    };
-    const existingName = this.state.contacts.find(
-      contact => contact.name === name
+    const existingName = this.state.contacts.some(
+      contact => contact.name.toLowerCase() === name.toLowerCase()
     );
     if (existingName) {
       Notiflix.Notify.failure(`${name} is already in contacts`);
       return;
     }
+    const newContact = {
+      id: nanoid(),
+      name,
+      number,
+    };
     this.setState(prevstate => ({
       contacts: [...prevstate.contacts, newContact],
     }));

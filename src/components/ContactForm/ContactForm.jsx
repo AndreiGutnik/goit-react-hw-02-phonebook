@@ -15,6 +15,9 @@ export class ContactForm extends Component {
     number: '',
   };
 
+  labelNameId = nanoid();
+  labelNumberId = nanoid();
+
   onChangeInput = e => {
     const { name, value } = e.target;
     this.setState({ [name]: value });
@@ -32,12 +35,10 @@ export class ContactForm extends Component {
 
   render() {
     const { name, number } = this.state;
-    const labelNameId = nanoid();
-    const labelNumberId = nanoid();
     return (
       <Form onSubmit={this.onSubmitForm}>
         <div>
-          <label htmlFor={labelNameId}>Name</label>
+          <label htmlFor={this.labelNameId}>Name</label>
           <InputWrap>
             <Input
               type="text"
@@ -47,7 +48,7 @@ export class ContactForm extends Component {
               placeholder="Name"
               required
               value={name}
-              id={labelNameId}
+              id={this.labelNameId}
               onChange={this.onChangeInput}
             />
             <IconUser />
@@ -55,7 +56,7 @@ export class ContactForm extends Component {
         </div>
 
         <div>
-          <label htmlFor={labelNumberId}>Number</label>
+          <label htmlFor={this.labelNumberId}>Number</label>
           <InputWrap>
             <Input
               type="tel"
@@ -65,7 +66,7 @@ export class ContactForm extends Component {
               placeholder="Phone number"
               required
               value={number}
-              id={labelNumberId}
+              id={this.labelNumberId}
               onChange={this.onChangeInput}
             />
             <IconPhone />
